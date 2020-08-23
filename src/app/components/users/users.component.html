@@ -1,0 +1,24 @@
+<div class="row mt-5">
+  <div class="col-sm-8 mx-auto">
+    <div class="form-group">
+      <input type="text" id="usersAutoComplete" (keyup)="getUserDetails($event)"
+        class="form-control form-control-lg" placeholder="Search user">
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  
+  <div class="col-3 mt-4" *ngFor="let user of userList | async">
+    <div class="card bg-white">
+      <div class="card-body" style="padding: 5px;">
+        <img class="rounded-circle img-circle" [attr.src]="user.avatar_url" />
+        <div class="card-body-text" style="cursor: pointer; margin: 0px 15px; display: inline-block;">
+          <a style="font-weight: bold;font-size: 18px;color: black;" [routerLink]="['/repo',user.login]"
+            class="mb-0">{{user.login}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
